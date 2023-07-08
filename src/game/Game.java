@@ -3,15 +3,19 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.util.concurrent.TimeUnit;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 
 public class Game extends Canvas {
+    private static final long serialVersionUID = 1L;
 
-    public static int WIDTH = 240;
-    public static int HEIGHT = 120;
-    public static int SCALE = 3;
+    protected static int WIDTH = 640;
+    protected static int HEIGHT = 480;
+    protected static int SCALE = 1;
+
+    private BufferedImage layer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
     public static boolean running = true;
     public Game() {
@@ -79,6 +83,17 @@ public class Game extends Canvas {
      * Defines a function to draw the game
      */
     public void draw() {
+        BufferStrategy bs = this.getBufferStrategy();
+        if(bs == null) {
+            this.createBufferStrategy(3);
+            return;
+        }
+        Graphics g = bs.getDrawGraphics();
+        g.setColor(Color.BLACK);
+        g.fillRect(0, 0, WIDTH, HEIGHT);
 
+        g = bs.getDrawGraphics();
+        g.drawImage(layer, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
+        bs.show();
     }
 }
