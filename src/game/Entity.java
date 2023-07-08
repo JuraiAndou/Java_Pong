@@ -3,7 +3,7 @@ package game;
 public class Entity implements Graphics, Physics{
 
 	@Override
-	public void update() {
+	public void update(double delta) {
 		// TODO Auto-generated method stub
 		
 	}

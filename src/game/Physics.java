@@ -5,5 +5,5 @@ package game;
 public interface Physics {
 	
 	//Método responsavel por "atualiazar" as entidades, seja posição, colisão etc.. Como cada entidade possui um "comportamento" diferente, a implementação fica por conta delas
-	public void update();
+	public void update(double delta);
 }	
