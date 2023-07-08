@@ -34,7 +34,7 @@ public class Enemy extends Entity {
      */
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.blue);
+        g.setColor(Color.red);
         g.fillRect(10, this.y - (this.height / 2) , this.width, this.height);
     }
 }
