@@ -22,6 +22,9 @@ public class Player extends Entity {
 		
 		
 		this.inputListener = game.input;
+		
+		//Inicialização do variaveis de posição
+		// [0] = X | [1] = Y
 		this.pos = new int [2];
 	}
 
@@ -33,9 +36,9 @@ public class Player extends Entity {
 
 	@Override
 	public void draw(java.awt.Graphics g) {
-		g.setColor(Color.white);
+		g.setColor(Color.blue);
 		g.fillRect(pos[0] + this.worldW - 20, pos[1] - 70, 10 * this.scale, 140 *this.scale);
-		
+
 	}
 	
 	public void addScore() {

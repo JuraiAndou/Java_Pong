@@ -25,6 +25,7 @@ public class Game extends Canvas {
     ArrayList<Entity> entities = new ArrayList<>();
     public Entity enemy;
     public Entity player;
+    public Entity ball;
 
     public Game() {
         this.setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
@@ -39,6 +40,10 @@ public class Game extends Canvas {
         // Enemy initialization
         this.enemy = new Enemy(this);
         entities.add(enemy);
+        
+        // Ball initialization
+        this.ball = new Ball(this);
+        entities.add(ball);
     }
 
     public static void main(String[] args) throws Exception {

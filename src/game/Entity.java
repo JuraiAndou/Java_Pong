@@ -6,6 +6,7 @@ public class Entity implements Graphics, Physics{
 		// TODO Auto-generated method stub
 		
 	}
+	
 	public void draw(java.awt.Graphics g) {
 		// TODO Auto-generated method stub
 		
