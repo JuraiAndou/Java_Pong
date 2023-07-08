@@ -1,0 +1,2 @@
+# Ignores binary classes in vscode bild
+bin/*
