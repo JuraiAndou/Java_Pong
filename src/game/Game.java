@@ -12,7 +12,8 @@ import javax.swing.JFrame;
 
 public class Game extends Canvas {
     private static final long serialVersionUID = 1L;
-
+    
+	public static Inputs input;
     protected int WIDTH = 640;
     protected int HEIGHT = 480;
     protected static int SCALE = 1;
@@ -23,9 +24,17 @@ public class Game extends Canvas {
 
     ArrayList<Entity> entities = new ArrayList<>();
     public Entity enemy;
+    public Entity player;
 
     public Game() {
         this.setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
+        
+        //inputSystem initialization
+        this.input = new Inputs(this);
+        
+        //player initialization
+        this.player = new Player(this);
+        entities.add(player);
         
         // Enemy initialization
         this.enemy = new Enemy(this);
