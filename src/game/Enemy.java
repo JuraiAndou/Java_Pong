@@ -8,6 +8,7 @@ public class Enemy extends Entity {
     public int score;
     private int speed;
     private int WORLD_HEIGHT, WORLD_WIDTH;
+    private int x, y, height, width;
 
     /**
      * Defines the Enemy constructor
@@ -16,6 +17,9 @@ public class Enemy extends Entity {
         System.out.println("Enemy is initialized...");
         this.WORLD_HEIGHT = game.HEIGHT;
         this.WORLD_WIDTH = game.WIDTH;
+        this.y = WORLD_HEIGHT /  2;
+        this.height = 140;
+        this.width = 10;
 
     }
     /**
@@ -31,6 +35,6 @@ public class Enemy extends Entity {
     @Override
     public void draw(Graphics g) {
         g.setColor(Color.blue);
-        g.fillRect(50, 50, 50, 50);
+        g.fillRect(10, this.y - (this.height / 2) , this.width, this.height);
     }
 }
