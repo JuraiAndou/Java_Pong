@@ -1,25 +1,35 @@
 package game;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
 public class Game extends Canvas {
     private static final long serialVersionUID = 1L;
 
-    protected static int WIDTH = 640;
-    protected static int HEIGHT = 480;
+    protected int WIDTH = 640;
+    protected int HEIGHT = 480;
     protected static int SCALE = 1;
 
     private BufferedImage layer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
     public static boolean running = true;
+
+    ArrayList<Entity> entities = new ArrayList<>();
+    public Entity enemy;
+
     public Game() {
         this.setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
+        
+        // Enemy initialization
+        this.enemy = new Enemy(this);
+        entities.add(enemy);
     }
 
     public static void main(String[] args) throws Exception {
@@ -76,7 +86,10 @@ public class Game extends Canvas {
      * Defines a function to update the game
      */
     public void update(double delta) {
-
+        // Calls the update function of the entities
+        for (Entity entity : entities) {
+            entity.update(delta);
+        }
     }
 
     /**
@@ -88,9 +101,13 @@ public class Game extends Canvas {
             this.createBufferStrategy(3);
             return;
         }
-        Graphics g = bs.getDrawGraphics();
+        Graphics g = layer.getGraphics();
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, WIDTH, HEIGHT);
+        // Calls the draw function of the entities
+        for (Entity entity : entities) {
+            entity.draw(g);
+        }
 
         g = bs.getDrawGraphics();
         g.drawImage(layer, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
