@@ -17,6 +17,7 @@ public class Enemy extends Entity {
         System.out.println("Enemy is initialized...");
         this.WORLD_HEIGHT = game.HEIGHT;
         this.WORLD_WIDTH = game.WIDTH;
+        this.x = 10; //adicionei ela so por enquanto, pra teste
         this.y = WORLD_HEIGHT /  2;
         this.height = 140;
         this.width = 10;
@@ -35,6 +36,24 @@ public class Enemy extends Entity {
     @Override
     public void draw(Graphics g) {
         g.setColor(Color.red);
-        g.fillRect(10, this.y - (this.height / 2) , this.width, this.height);
+        g.fillRect(this.x, this.y - (this.height / 2) , this.width, this.height);
     }
+    
+    
+	//getters de caixa de colisão
+	public int getEnemyTop() {
+		return this.y - this.height/2; 
+	}
+	
+	public int getEnemyBottom() {
+		return this.y + this.height/2;
+	}
+	
+	public int getEnemyLeft() {
+		return this.x - this.width;
+	}
+	
+	public int getEnemyRight() {
+		return this.x + this.width;
+	}
 }

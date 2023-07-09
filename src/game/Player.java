@@ -5,10 +5,17 @@ import java.awt.Color;
 public class Player extends Entity {
 	
 	private Inputs inputListener;
+	
+	//Variaveis do frame
 	private int scale;
     private int worldH, worldW;
 	
+    
+    //variaveis de posição
 	private int [] pos; 
+	
+	//variavel de tamanho, para calculo de colisão
+	private int [] size = new int [2];
 	
 	private static int score;
 	
@@ -20,12 +27,17 @@ public class Player extends Entity {
 	    this.worldW = game.WIDTH;
 		this.scale = game.SCALE;
 		
-		
+		//iniciaando variavel que controla os inputs
 		this.inputListener = game.input;
 		
 		//Inicialização do variaveis de posição
 		// [0] = X | [1] = Y
 		this.pos = new int [2];
+		
+		//inicializando variaveis de tamanho
+		// [0] = X | [1] = Y
+		this.size[0]=  10 * this.scale;
+		this.size[1]= 140 *this.scale;
 	}
 
 	@Override
@@ -37,7 +49,7 @@ public class Player extends Entity {
 	@Override
 	public void draw(java.awt.Graphics g) {
 		g.setColor(Color.blue);
-		g.fillRect(pos[0] + this.worldW - 20, pos[1] - 70, 10 * this.scale, 140 *this.scale);
+		g.fillRect(pos[0] + this.worldW - 20, pos[1] - this.size[1]/2, this.size[0], this.size[1]);
 
 	}
 	
@@ -47,5 +59,23 @@ public class Player extends Entity {
 	
 	public int getScore(){
 		return score;
+	}
+	
+	
+	//getters de caixa de colisão
+	public int getPlayerTop() {
+		return pos[1] - this.size[1]/2;
+	}
+	
+	public int getPlayerBottom() {
+		return pos[1] + this.size[1]/2;
+	}
+	
+	public int getPlayerLeft() {
+		return pos[0] + this.worldW - this.size[0] -10;
+	}
+	
+	public int getPlayerRight() {
+		return pos[0] + this.worldW + this.size[0];
 	}
 }
