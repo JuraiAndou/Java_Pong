@@ -35,7 +35,7 @@ public class Ball extends Entity {
 		this.player = (Player) game.getPlayer();
 		this.enemy =  (Enemy) game.getEnemy();
 		
-		this.size = 50;
+		this.size = 20;
 	}
 	
 	@Override
@@ -70,6 +70,13 @@ public class Ball extends Entity {
 				this.spd[0] = this.spd[0] * -1;
 			}
 		}
+		
+		//colisão com o "gol"
+		if (this.pos[0] + size >= this.worldW){
+			this.resetBall();
+		}else if (this.pos[0] <= 0) {
+			this.resetBall();
+		}
 	}
 	
 	@Override
@@ -78,12 +85,18 @@ public class Ball extends Entity {
 		g.fillRect((int)pos[0], (int)pos[1] - this.size/2, size * this.scale, size *this.scale);
 	}
 	
-	public double getX() {
+	public double getX(){
 		return this.pos[0];
 	}
 	
-	public double getY() {
+	public double getY(){
 		return this.pos[1];
+	}
+	
+	public void resetBall(){
+		this.pos[0] = worldW/2;
+		this.pos[1] = worldH/2;
+		this.spd[0] = this.spd[0] *-1;
 	}
 
 }

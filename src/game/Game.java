@@ -25,7 +25,7 @@ public class Game extends Canvas {
     ArrayList<Entity> entities = new ArrayList<>();
     private Entity enemy;
     private Entity player;
-    public Entity ball;
+    private Entity ball;
 
     public Game() {
         this.setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
@@ -77,7 +77,7 @@ public class Game extends Canvas {
             delta += (now - lastTime) / ns;
             lastTime = now;
             
-            // Fixes the upadate at 60 times per second
+            // Fixes the update at 60 times per second
             while (delta >= 1) {
                 update(delta);
                 updates++;
@@ -104,6 +104,7 @@ public class Game extends Canvas {
         for (Entity entity : entities) {
             entity.update(delta);
         }
+       
     }
 
     /**
@@ -136,5 +137,9 @@ public class Game extends Canvas {
     
     public Entity getEnemy() {
     	return enemy;
+    }
+    
+    public Entity getBall() {
+    	return ball;
     }
 }
