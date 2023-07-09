@@ -45,13 +45,13 @@ public class Ball extends Entity {
 		this.pos[1] = this.pos[1] + (this.spd[1]*delta);
 		
 		//colisão com tela
-		if (this.pos[1] + size/2>= this.worldH) {
+		if (this.pos[1] + size/2 >= this.worldH) {
 			if (this.spd[1] >= 0) {
 				this.spd[1] =  this.spd[1] * -1;
 			}
 		}
 		
-		if (this.pos[1] <= 0) {
+		if (this.pos[1] - size/2 <= 0) {
 			if (this.spd[1] <= 0) {
 				this.spd[1] =  this.spd[1] * -1;
 			}
@@ -64,7 +64,7 @@ public class Ball extends Entity {
 			}
 		}
 		
-		//colisão com o enemey
+		//colisão com o enemy
 		if (this.pos[1] + size >= this.enemy.getEnemyTop() && this.pos[1] <= this.enemy.getEnemyBottom() && (this.pos[0]) <= this.enemy.getEnemyRight()){
 			if (this.spd[0] <= 0) {
 				this.spd[0] = this.spd[0] * -1;
