@@ -3,13 +3,11 @@ package game;
 
 public class Entity implements Graphics, Physics{
 	public void update(double delta) {
-		// TODO Auto-generated method stub
-		
+		// Needs to be implemented if the entity is going to interact with Physics
 	}
 	
 	public void draw(java.awt.Graphics g) {
-		// TODO Auto-generated method stub
-		
+		// Needs to be implemented if the entity is going to be drawn
 	}
 	
 	

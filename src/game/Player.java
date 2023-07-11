@@ -8,7 +8,7 @@ public class Player extends Entity {
 	
 	//Variaveis do frame
 	private int scale;
-    private int worldH, worldW;
+    private int worldW;
 	
     
     //variaveis de posição
@@ -23,7 +23,6 @@ public class Player extends Entity {
 		System.out.println("Player initialized....");
 		
 		//inicialização das variaveis que obtem os parametros do Jframe.
-		this.worldH = game.getH();
 	    this.worldW = game.getW();
 		this.scale = game.getSc();
 		

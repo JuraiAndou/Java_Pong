@@ -6,9 +6,8 @@ import java.awt.Graphics;
 public class Enemy extends Entity {
 
     private static int score;
-    private int speed;
-    private int WORLD_HEIGHT, WORLD_WIDTH;
-    private int x, y, height, width;
+    private int WORLD_HEIGHT;
+    private int x, y, height, width, speed;
     private Game game;
 
     /**
@@ -16,13 +15,13 @@ public class Enemy extends Entity {
      */
     public Enemy(Game game) {
         System.out.println("Enemy is initialized...");
-        this.WORLD_HEIGHT = game.getH();;
-        this.WORLD_WIDTH = game.getW();;
+        this.WORLD_HEIGHT = game.getH();
         this.x = 10; //adicionei ela so por enquanto, pra teste
         this.y = WORLD_HEIGHT /  2;
         this.height = 140;
         this.width = 10;
         this.game = game;
+        this.speed = 4;
     }
     /**
      * Enemy Update function
@@ -33,9 +32,9 @@ public class Enemy extends Entity {
          * Makes the enemy follow the ball
          */
         if (this.getBodyBottom() < this.game.getBall().getBodyBottom()) {
-            this.y += 1 * delta;
+            this.y += this.speed * delta;
         } else if (this.getBodyTop() > this.game.getBall().getBodyTop()) {
-            this.y -= 1 * delta;
+            this.y -= this.speed * delta;
         }
         
     }
