@@ -9,6 +9,7 @@ public class Enemy extends Entity {
     private int speed;
     private int WORLD_HEIGHT, WORLD_WIDTH;
     private int x, y, height, width;
+    private Game game;
 
     /**
      * Defines the Enemy constructor
@@ -21,13 +22,21 @@ public class Enemy extends Entity {
         this.y = WORLD_HEIGHT /  2;
         this.height = 140;
         this.width = 10;
-
+        this.game = game;
     }
     /**
      * Enemy Update function
      */
     @Override
     public void update(double delta) {
+        /**
+         * Makes the enemy follow the ball
+         */
+        if (this.getBodyBottom() < this.game.getBall().getBodyBottom()) {
+            this.y += 1 * delta;
+        } else if (this.getBodyTop() > this.game.getBall().getBodyTop()) {
+            this.y -= 1 * delta;
+        }
         
     }
     /**
