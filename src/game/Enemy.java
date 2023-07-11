@@ -5,7 +5,7 @@ import java.awt.Graphics;
 
 public class Enemy extends Entity {
 
-    public int score;
+    private static int score;
     private int speed;
     private int WORLD_HEIGHT, WORLD_WIDTH;
     private int x, y, height, width;
@@ -15,8 +15,8 @@ public class Enemy extends Entity {
      */
     public Enemy(Game game) {
         System.out.println("Enemy is initialized...");
-        this.WORLD_HEIGHT = game.HEIGHT;
-        this.WORLD_WIDTH = game.WIDTH;
+        this.WORLD_HEIGHT = game.getH();;
+        this.WORLD_WIDTH = game.getW();;
         this.x = 10; //adicionei ela so por enquanto, pra teste
         this.y = WORLD_HEIGHT /  2;
         this.height = 140;
@@ -39,21 +39,38 @@ public class Enemy extends Entity {
         g.fillRect(this.x, this.y - (this.height / 2) , this.width, this.height);
     }
     
+	public void addScore() {
+		score += 1;
+	}
+	
+	public int getScore(){
+		return score;
+	}
+	
+    //getters de atributos
+	public double getPosX(){
+		return this.x;
+	}
+	
+	public double getPosY(){
+		return this.y  - (this.height / 2);
+	}
+   
     
 	//getters de caixa de colisão
-	public int getEnemyTop() {
+	public int getBodyTop() {
 		return this.y - this.height/2; 
 	}
 	
-	public int getEnemyBottom() {
+	public int getBodyBottom() {
 		return this.y + this.height/2;
 	}
 	
-	public int getEnemyLeft() {
+	public int getBodyLeft() {
 		return this.x - this.width;
 	}
 	
-	public int getEnemyRight() {
+	public int getBodyRight() {
 		return this.x + this.width;
 	}
 }

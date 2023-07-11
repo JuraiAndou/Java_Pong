@@ -17,9 +17,9 @@ public class Ball extends Entity {
 	public Ball (Game game) {
 		
 		//Inicialização dos parametros do mundo
-		this.worldH = game.HEIGHT;
-	    this.worldW = game.WIDTH;
-		this.scale = game.SCALE;
+		this.worldH = game.getH();
+	    this.worldW = game.getW();
+		this.scale = game.getSc();
 		
 		//Inicialização do variaveis de velocidade
 		// [0] = X | [1] = Y
@@ -58,14 +58,14 @@ public class Ball extends Entity {
 		}
 		
 		//colisão com player
-		if (this.pos[1] + size >= this.player.getPlayerTop() && this.pos[1] <= this.player.getPlayerBottom() && (this.pos[0] + this.size) >= this.player.getPlayerLeft()){
+		if (this.getBodyBottom() >= this.player.getBodyTop() && this.getBodyTop() <= this.player.getBodyBottom() && this.getBodyRight() >= this.player.getBodyLeft()){
 			if (this.spd[0] >= 0) {
 				this.spd[0] = this.spd[0] * -1;
 			}
 		}
 		
 		//colisão com o enemy
-		if (this.pos[1] + size >= this.enemy.getEnemyTop() && this.pos[1] <= this.enemy.getEnemyBottom() && (this.pos[0]) <= this.enemy.getEnemyRight()){
+		if (this.getBodyBottom() >= this.enemy.getBodyTop() && this.getBodyTop() <= this.enemy.getBodyBottom() &&  this.getBodyLeft() <= this.enemy.getBodyRight()){
 			if (this.spd[0] <= 0) {
 				this.spd[0] = this.spd[0] * -1;
 			}
@@ -85,12 +85,29 @@ public class Ball extends Entity {
 		g.fillRect((int)pos[0], (int)pos[1] - this.size/2, size * this.scale, size *this.scale);
 	}
 	
-	public double getX(){
+	public double getPosX(){
 		return this.pos[0];
 	}
 	
-	public double getY(){
-		return this.pos[1];
+	public double getPosY(){
+		return this.pos[1] - this.size/2;
+	}
+	
+	//getters de caixa de colisão
+	public int getBodyTop() {
+		return (int) (this.pos[1]);
+	}
+		
+	public int getBodyBottom() {
+		return (int) (this.pos[1] + size);
+	}
+		
+	public int getBodyLeft() {
+		return (int) this.pos[0];
+	}
+		
+	public int getBodyRight() {
+		return (int) (this.pos[0] + this.size);
 	}
 	
 	public void resetBall(){

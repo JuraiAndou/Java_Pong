@@ -23,12 +23,12 @@ public class Player extends Entity {
 		System.out.println("Player initialized....");
 		
 		//inicialização das variaveis que obtem os parametros do Jframe.
-		this.worldH = game.HEIGHT;
-	    this.worldW = game.WIDTH;
-		this.scale = game.SCALE;
+		this.worldH = game.getH();
+	    this.worldW = game.getW();
+		this.scale = game.getSc();
 		
 		//iniciaando variavel que controla os inputs
-		this.inputListener = game.input;
+		this.inputListener = game.getInputSys();
 		
 		//Inicialização do variaveis de posição
 		// [0] = X | [1] = Y
@@ -61,21 +61,30 @@ public class Player extends Entity {
 		return score;
 	}
 	
+	//Getters de atributos
+	public double getPosX(){
+		return this.pos[0] + this.worldW - 20;
+	}
+	
+	public double getPosY(){
+		return this.pos[1] - this.size[1]/2;
+	}
+	
 	
 	//getters de caixa de colisão
-	public int getPlayerTop() {
+	public int getBodyTop() {
 		return pos[1] - this.size[1]/2;
 	}
 	
-	public int getPlayerBottom() {
+	public int getBodyBottom() {
 		return pos[1] + this.size[1]/2;
 	}
 	
-	public int getPlayerLeft() {
+	public int getBodyLeft() {
 		return pos[0] + this.worldW - this.size[0] -10;
 	}
 	
-	public int getPlayerRight() {
+	public int getBodyRight() {
 		return pos[0] + this.worldW + this.size[0];
 	}
 }

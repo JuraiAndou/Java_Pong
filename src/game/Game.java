@@ -13,16 +13,16 @@ import javax.swing.JFrame;
 public class Game extends Canvas {
     private static final long serialVersionUID = 1L;
     
-	public Inputs input;
+	private Inputs input;
     protected int WIDTH = 640;
     protected int HEIGHT = 480;
-    protected static int SCALE = 1;
+    protected int SCALE = 1;
 
     private BufferedImage layer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
     public static boolean running = true;
 
-    ArrayList<Entity> entities = new ArrayList<>();
+    private ArrayList<Entity> entities = new ArrayList<>();
     private Entity enemy;
     private Entity player;
     private Entity ball;
@@ -132,14 +132,32 @@ public class Game extends Canvas {
     //getters das entidades 
     //isso é feito para que outras entidades interessadas como a "bola", possam acessar algumas caracteristacas de outras entidades por meios de seus métodos.
     public Entity getPlayer() {
-    	return player;
+    	return this.player;
     }
     
     public Entity getEnemy() {
-    	return enemy;
+    	return this.enemy;
     }
     
     public Entity getBall() {
-    	return ball;
+    	return this.ball;
+    }
+    
+    //Get da classe controladora de inputs
+    public Inputs getInputSys() {
+    	return this.input;
+    }
+    
+    //getters do parametros da tela.
+    public int getW() {
+    	return this.WIDTH;
+    }
+    
+    public int getH() {
+    	return this.HEIGHT;
+    }
+    
+    public int getSc() {
+    	return this.SCALE;
     }
 }
