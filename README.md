@@ -42,7 +42,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
         <a href="https://github.com/RVctorDev">
-            <img src="https://nypost.com/wp-content/uploads/sites/2/2022/07/elon-musk-shirtless-mykonos-05.jpg" width="100px;" alt="Foto do Iuri Silva no GitHub"/><br>
+            <img src="https://nypost.com/wp-content/uploads/sites/2/2022/07/elon-musk-shirtless-mykonos-05.jpg" width="100px;" alt="Foto do Rian Victor"/><br>
             <sub>
                 <b>Rian Victor</b>
             </sub>
@@ -59,7 +59,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   <tr>
     <td align="center">
         <a href="https://github.com/JuraiAndou">
-            <img src="https://s2.glbimg.com/FUcw2usZfSTL6yCCGj3L3v3SpJ8=/smart/e.glbimg.com/og/ed/f/original/2019/04/25/zuckerberg_podcast.jpg" width="100px;" alt="Foto do Mark Zuckerberg"/><br>
+            <img src="https://s2.glbimg.com/FUcw2usZfSTL6yCCGj3L3v3SpJ8=/smart/e.glbimg.com/og/ed/f/original/2019/04/25/zuckerberg_podcast.jpg" width="100px;" alt="Foto do Samuel Afonsto"/><br>
             <sub>
                 <b>Samuel Afonso</b>
             </sub>
