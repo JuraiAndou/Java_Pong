@@ -8,6 +8,9 @@
 
 > Uma simples implementação do Pong em Java usando POO
 
+
+<img src="https://i.imgur.com/TeCEbnF.png" alt="Java Pong Rodando">
+
 ## 💻 Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
@@ -21,7 +24,7 @@ Para enditar o código do Java Pong, siga estas etapas:
 Eclipse:
 * Dentro do eclipse você pode importar o projeto como pasta ou arquivo:
 
-<img src="https://i.imgur.com/1YUmnT7.png" alt="exemplo imagem">
+<img src="https://i.imgur.com/1YUmnT7.png" alt="exemplo eclipse">
 
 VSCode:
 * Caso você tenha a exteção: `Extension Pack for Java` você pode utilizar o seguinte comando:
