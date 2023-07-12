@@ -47,7 +47,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
         <a href="https://github.com/RVctorDev">
-            <img align="center" src="https://github-readme-stats.vercel.app/api?username=rvctordev&show_icons=true" />
+            <img align="center" src="https://github-readme-stats.vercel.app/api?username=rvctordev&show_icons=true&theme=dark" />
         </a>
     </td>
   </tr>
@@ -64,7 +64,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
     </td>
     <td align="center">
         <a href="https://github.com/JuraiAndou">
-            <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=juraiandou&hide=html&layout=compact&theme=default" />
+            <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=juraiandou&hide=html&layout=compact&theme=dark" />
         </a>
     </td>
   </tr>
