@@ -26,6 +26,7 @@ public class Game extends Canvas {
     private Entity enemy;
     private Entity player;
     private Entity ball;
+    public static Game game;
 
     public Game() {
         this.setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
@@ -47,7 +48,7 @@ public class Game extends Canvas {
     }
 
     public static void main(String[] args) throws Exception {
-        Game game = new Game();
+        game = new Game();
 
         JFrame frame = new JFrame("Pong");
         frame.setResizable(false);
@@ -58,13 +59,13 @@ public class Game extends Canvas {
         frame.setVisible(true);
 
         System.out.println("Game is initializing...");
-        game.gameLoop();
+        gameLoop();
     }
 
     /**
      * Defines a function for the Game Loop
      */
-    public void gameLoop() {
+    public static void gameLoop() {
         long lastTime = System.nanoTime();
         double amountOfTicks = 60.0;
         double ns = 1000000000 / amountOfTicks;
@@ -79,12 +80,12 @@ public class Game extends Canvas {
             
             // Fixes the update at 60 times per second
             while (delta >= 1) {
-                update(delta);
+                game.update(delta);
                 updates++;
                 delta--;
             }
             if(running)
-                draw();
+                game.draw();
             frames++;
             
             if(System.currentTimeMillis() - timer > 1000) {
